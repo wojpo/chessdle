@@ -1,0 +1,13 @@
+@import 'tailwindcss' theme(static);
+@import '@nuxt/ui';
+@tailwind utilities;
+
+body {
+    background-color: #231F20;
+}
+
+@theme static {
+    --color-primary: #7EBDC2;
+    --color-secondary: #BB4430;
+    --color-bg: #231F20;
+}
