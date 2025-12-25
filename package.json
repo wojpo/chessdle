@@ -10,9 +10,11 @@
     "postinstall": "nuxt prepare"
   },
   "dependencies": {
+    "@lichess-org/chessground": "^9.9.0",
     "@nuxt/eslint": "1.12.1",
     "@nuxt/fonts": "0.12.1",
     "@nuxt/ui": "^4.3.0",
+    "chess.js": "^1.4.0",
     "eslint": "^9.0.0",
     "nuxt": "^4.2.2",
     "vue": "^3.5.26",

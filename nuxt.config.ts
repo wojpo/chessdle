@@ -9,8 +9,4 @@ export default defineNuxtConfig({
       stylistic: true,
     },
   },
-  fonts: {
-    name: 'Pacifico',
-    provider: 'google',
-  },
 })
