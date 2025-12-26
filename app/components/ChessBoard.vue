@@ -8,16 +8,19 @@ import '@lichess-org/chessground/assets/chessground.base.css'
 import '@/assets/css/chessground.custom.css'
 import '@lichess-org/chessground/assets/chessground.cburnett.css'
 
+const props = defineProps<{
+  pgn: string
+}>()
+
 const boardRef = ref<HTMLElement | null>(null)
 const chess = new Chess()
 let cg: Api | null = null
 
-const pgn = '1. e4 e5 2. Nf3 Nc6 3. Bb5 a6 4. Ba4'
 const history = ref<Move[]>([])
 const currentIndex = ref<number>(-1)
 
 onMounted(() => {
-  chess.loadPgn(pgn)
+  chess.loadPgn(props.pgn)
   history.value = chess.history({ verbose: true })
   chess.reset()
 
