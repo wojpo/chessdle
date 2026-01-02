@@ -22,6 +22,7 @@ export interface PlayerSide {
 export interface ChessGame {
   rated: boolean
   time_class: 'bullet' | 'blitz' | 'rapid' | 'daily'
+  time_control: string
   pgn: string
   white: PlayerSide
   black: PlayerSide

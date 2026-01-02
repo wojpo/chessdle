@@ -13,6 +13,7 @@ const { data, pending } = await useFetch<ChessGame>('/api/random_game')
       <ChessBoard
         v-if="data.pgn"
         :pgn="data.pgn"
+        :time-control="data.time_control"
       />
     </div>
   </div>
