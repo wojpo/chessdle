@@ -16,13 +16,13 @@ const props = defineProps<{
 const boardRef = ref<HTMLElement | null>(null)
 const chess = new Chess()
 let cg: Api | null = null
-let cloak = chess.getComments()
+let clock: ReturnType<typeof chess.getComments>
 
 const history = ref<Move[]>([])
 const clocks = ref<{ white: string, black: string }[]>([])
 const currentIndex = ref<number>(-1)
 
-function parseChessClk(input: string): string {
+function parseChessClock(input: string): string {
   const match = input.match(/\[%clk\s+([0-9:.]+)]/)
   const time = match?.[1]
   if (!time) return input
@@ -68,14 +68,14 @@ let blackTime = startTime
 onMounted(() => {
   chess.loadPgn(props.pgn)
   history.value = chess.history({ verbose: true })
-  cloak = chess.getComments()
+  clock = chess.getComments()
   chess.reset()
 
   let wTime = startTime
   let bTime = startTime
   clocks.value = history.value.map((move, i) => {
-    const clk = cloak[i]?.comment
-    const parsed = clk ? parseChessClk(clk) : null
+    const clockComment = clock[i]?.comment
+    const parsed = clockComment ? parseChessClock(clockComment) : null
     if (parsed) {
       if (i % 2 === 0) wTime = parsed
       else bTime = parsed
