@@ -140,10 +140,8 @@ onBeforeUnmount(() => {
 <template>
   <div class="flex flex-col items-center gap-4 p-6">
     <div class="w-full max-w-[320px] sm:max-w-[480px] flex justify-between items-center mb-1">
-      <div class="bg-secondary text-white px-4 py-1.5 rounded-md font-mono text-xl shadow-inner border border-primary/5 min-w-[110px] text-center">
-        {{ whiteTime ?? startTime }}
-      </div>
-      <div class="bg-secondary text-black px-4 py-1.5 rounded-md font-mono text-xl shadow-lg min-w-[110px] text-center">
+      <player-avatar>Black Player <span class="font-semibold">(???)</span></player-avatar>
+      <div class="bg-secondary px-4 py-1.5 rounded-md font-mono text-xl min-w-[110px] text-right">
         {{ blackTime ?? startTime }}
       </div>
     </div>
@@ -151,6 +149,12 @@ onBeforeUnmount(() => {
       ref="boardRef"
       class="w-[320px] h-[320px] sm:w-[480px] sm:h-[480px] rounded-sm overflow-hidden shadow-lg"
     />
+    <div class="w-full max-w-[320px] sm:max-w-[480px] flex justify-between items-center mb-1">
+      <player-avatar>White Player <span class="font-semibold">(???)</span></player-avatar>
+      <div class="bg-secondary px-4 py-1.5 rounded-md font-mono text-xl min-w-[110px] text-right">
+        {{ whiteTime ?? startTime }}
+      </div>
+    </div>
 
     <div class="flex items-center gap-1 text-bg font-bold">
       <button
