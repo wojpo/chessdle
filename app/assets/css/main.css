@@ -6,6 +6,10 @@ body {
     background-color: #231F20;
 }
 
+:root {
+    --ui-bg: var(--color-bg);
+}
+
 @theme static {
     --color-primary: #7EBDC2;
     --color-secondary: #BB4430;
