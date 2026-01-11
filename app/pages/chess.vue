@@ -21,7 +21,7 @@ const averageElo = computed(() => {
   const black = data.value.black.rating
   const avg = (white + black) / 2
 
-  return Math.ceil(avg / 50) * 50
+  return Math.round(avg / 50) * 50
 })
 
 const showElo = ref(false)
