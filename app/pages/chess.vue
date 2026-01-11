@@ -80,10 +80,10 @@ const submitGuess = () => {
 
       <div
         v-else
-        class="mt-4 text-xl font-bold text-primary"
+        class="mt-4 text-xl font-bold"
       >
         Average ELO:
-        <span class="text-secondary">
+        <span class="text-primary">
           {{ result.elo }}
         </span>
       </div>
