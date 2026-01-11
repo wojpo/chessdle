@@ -7,7 +7,6 @@ const guessedElo = ref<number | null>(null)
 
 const isModalOpen = ref(false)
 
-ref(false)
 const result = ref<{
   elo: number
   guess: number
@@ -60,7 +59,6 @@ const submitGuess = () => {
       />
       <form
         v-if="!result"
-
         class="flex gap-3"
         @submit.prevent="submitGuess"
       >
@@ -109,11 +107,9 @@ const submitGuess = () => {
             <h2
               class="text-4xl font-extrabold"
               :class="
-                result.diff <= 50
+                result.diff <= 150
                   ? 'text-primary'
-                  : result.diff <= 150
-                    ? 'text-primary'
-                    : 'text-secondary'
+                  : 'text-secondary'
               "
             >
               {{
