@@ -53,8 +53,8 @@ const submitGuess = () => {
         v-if="data.pgn"
         :pgn="data.pgn"
         :time-control="data.time_control"
-        :black-elo="data.black.rating"
-        :white-elo="data.white.rating"
+        :black="data.black"
+        :white="data.white"
         :show-elo="showElo"
       />
       <form

@@ -3,6 +3,7 @@ import { Chessground } from '@lichess-org/chessground'
 import type { Api } from '@lichess-org/chessground/api'
 import type { Config } from '@lichess-org/chessground/config'
 import { Chess, type Move } from 'chess.js'
+import type { PlayerSide } from '~~/types/chesscom'
 
 import '@lichess-org/chessground/assets/chessground.base.css'
 import '@/assets/css/chessground.custom.css'
@@ -11,8 +12,8 @@ import '@lichess-org/chessground/assets/chessground.cburnett.css'
 const props = defineProps<{
   pgn: string
   timeControl: string
-  blackElo: number
-  whiteElo: number
+  black: PlayerSide
+  white: PlayerSide
   showElo: boolean
 }>()
 
@@ -143,8 +144,8 @@ onBeforeUnmount(() => {
 <template>
   <div class="flex flex-col items-center gap-4 p-6">
     <div class="w-full max-w-[320px] sm:max-w-[480px] flex justify-between items-center mb-1">
-      <PlayerAvatar>
-        Black Player <span class="font-semibold">({{ props.showElo ? props.blackElo : '???' }})</span>
+      <PlayerAvatar :result="black.result">
+        Black Player <span class="font-semibold">({{ props.showElo ? props.black.rating : '???' }})</span>
       </PlayerAvatar>
       <div class="bg-secondary px-4 py-1.5 rounded-md font-mono text-xl min-w-[110px] text-right">
         {{ blackTime ?? startTime }}
@@ -155,8 +156,8 @@ onBeforeUnmount(() => {
       class="w-[320px] h-[320px] sm:w-[480px] sm:h-[480px] rounded-sm overflow-hidden shadow-lg"
     />
     <div class="w-full max-w-[320px] sm:max-w-[480px] flex justify-between items-center mb-1">
-      <PlayerAvatar>
-        White Player <span class="font-semibold">({{ props.showElo ? props.whiteElo : '???' }})</span>
+      <PlayerAvatar :result="white.result">
+        White Player <span class="font-semibold">({{ props.showElo ? props.white.rating : '???' }})</span>
       </PlayerAvatar>
       <div class="bg-secondary px-4 py-1.5 rounded-md font-mono text-xl min-w-[110px] text-right">
         {{ whiteTime ?? startTime }}

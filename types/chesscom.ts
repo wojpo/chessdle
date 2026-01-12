@@ -16,7 +16,7 @@ export interface ArchivesResponse {
 export interface PlayerSide {
   username: string
   rating: number
-  result: string
+  result: GameResult
 }
 
 export interface ChessGame {
@@ -27,3 +27,20 @@ export interface ChessGame {
   white: PlayerSide
   black: PlayerSide
 }
+
+export type GameResult
+  = | 'win'
+    | 'checkmated'
+    | 'agreed'
+    | 'repetition'
+    | 'timeout'
+    | 'resigned'
+    | 'stalemate'
+    | 'lose'
+    | 'insufficient'
+    | '50move'
+    | 'abandoned'
+    | 'kingofthehill'
+    | 'threecheck'
+    | 'timevsinsufficient'
+    | 'bughousepartnerlose'
