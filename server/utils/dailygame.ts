@@ -5,9 +5,17 @@ export async function generateDailyGame(): Promise<ChessGame> {
   while (true) {
     try {
       const game = await pickRandomGameFromClub()
+      if (!game.rated) continue
 
-      const movesCount = game.pgn.split(/\d+\./).length - 1
-      if (movesCount < 20) continue
+      const whiteElo = game.white.rating
+      const blackElo = game.black.rating
+      if (Math.abs(whiteElo - blackElo) > 150) continue
+
+      const cleanPgn = game.pgn.replace(/\{[^}]*\}/g, '')
+      const moves = cleanPgn.match(/\b([KQBNR]?[a-h]?[1-8]?x?[a-h][1-8](=[QBNR])?|O-O(-O)?)\b/g)
+      const movesCount = moves ? moves.length : 0
+
+      if (movesCount < 30) continue
 
       return game
     }

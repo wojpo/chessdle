@@ -1,8 +1,10 @@
 <script setup lang="ts">
 import type { ChessGame } from '~~/types/chesscom'
-import FullGuessEloChess from '~/components/FullGuessEloChess.vue'
 
-const { data, pending } = await useFetch<ChessGame>('/api/random_game')
+const route = useRoute()
+const date = route.params.date as string
+
+const { data, pending } = await useFetch<ChessGame>(`/api/daily/${date}`)
 </script>
 
 <template>
@@ -13,6 +15,7 @@ const { data, pending } = await useFetch<ChessGame>('/api/random_game')
     <FullGuessEloChess
       v-else-if="data"
       :data="data"
+      :date="date"
     />
   </div>
 </template>

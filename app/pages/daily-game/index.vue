@@ -2,7 +2,9 @@
 import type { ChessGame } from '~~/types/chesscom'
 import FullGuessEloChess from '~/components/FullGuessEloChess.vue'
 
-const { data, pending } = await useFetch<ChessGame>('/api/random_game')
+const today = new Date().toISOString().split('T')[0]
+
+const { data, pending } = await useFetch<ChessGame>(`/api/daily/${today}`)
 </script>
 
 <template>
@@ -13,6 +15,7 @@ const { data, pending } = await useFetch<ChessGame>('/api/random_game')
     <FullGuessEloChess
       v-else-if="data"
       :data="data"
+      :date="today"
     />
   </div>
 </template>
