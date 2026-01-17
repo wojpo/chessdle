@@ -6,6 +6,11 @@ const props = defineProps<{
   date?: string
 }>()
 
+const cookieConfig = {
+  maxAge: 60 * 60 * 24 * 365,
+  watch: true as const,
+}
+
 const guessedElo = ref<number | null>(null)
 
 const isModalOpen = ref(false)
@@ -21,7 +26,7 @@ if (props.date) {
     elo: number
     guess: number
     diff: number
-  }>(props.date)
+  }>(props.date, cookieConfig)
 
   if (guessCookie.value) {
     result.value = guessCookie.value
@@ -52,11 +57,10 @@ const submitGuess = () => {
   isModalOpen.value = true
   showElo.value = true
   if (props.date) {
-    const daysCookie = useCookie<string[]>('days-cookie')
-
-    if (!daysCookie.value) {
-      daysCookie.value = []
-    }
+    const daysCookie = useCookie<string[]>('days-cookie', {
+      ...cookieConfig,
+      default: () => [],
+    })
 
     if (!daysCookie.value.includes(props.date)) {
       daysCookie.value.push(props.date)
@@ -64,7 +68,7 @@ const submitGuess = () => {
 
     const guessCookie = useCookie<{ elo: number
       guess: number
-      diff: number }>(props.date)
+      diff: number }>(props.date, cookieConfig)
     guessCookie.value = result.value
   }
 }
