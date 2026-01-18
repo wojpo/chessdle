@@ -78,7 +78,7 @@ const submitGuess = () => {
   <div
     class="grid grid-cols-1 lg:grid-cols-[1fr_auto_1fr] gap-8 items-center"
   >
-    <div class="order-2 lg:order-1 flex flex-col items-center lg:items-end text-right">
+    <div class="order-2 mb-24 lg:mb-0 lg:order-1 flex flex-col items-center lg:items-end text-right">
       <div
         v-if="result"
         class="space-y-2 animate-in fade-in slide-in-from-left-4 duration-500"
