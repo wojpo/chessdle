@@ -12,6 +12,17 @@ export default defineEventHandler(async (event) => {
     })
   }
 
+  const requestedDate = new Date(date)
+  const minDate = new Date('2026-01-01')
+  const maxDate = new Date()
+
+  if (requestedDate < minDate || requestedDate > maxDate) {
+    throw createError({
+      statusCode: 400,
+      statusMessage: 'Date out of allowed range (2026-01-01 to today)',
+    })
+  }
+
   const key = `daily:${date}`
   const redis = Redis.fromEnv()
 

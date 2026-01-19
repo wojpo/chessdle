@@ -37,11 +37,15 @@ export async function pickRandomGameFromClub(): Promise<ChessGame> {
     `https://api.chess.com/pub/player/${username}/games/archives`,
   )
 
-  const archive = random(archives.archives)
+  let game: ChessGame | null = null
 
-  const data = await $fetch<{ games: ChessGame[] }>(archive)
-
-  const game = random(data.games)
+  while (!game) {
+    const archive = random(archives.archives)
+    const data = await $fetch<{ games: ChessGame[] }>(archive)
+    if (data.games.length) {
+      game = random(data.games)
+    }
+  }
 
   return {
     ...game,

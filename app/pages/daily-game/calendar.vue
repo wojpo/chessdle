@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { CalendarDate, parseDate, type DateValue } from '@internationalized/date'
 
-const startDate = new CalendarDate(2026, 1, 16)
+const startDate = new CalendarDate(2026, 1, 1)
 
 const now = new Date()
 const today = new CalendarDate(
