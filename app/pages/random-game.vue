@@ -1,12 +1,19 @@
 <script setup lang="ts">
 import type { ChessGame } from '~~/types/chesscom'
 
+const toast = useToast()
+
 const { data, pending, refresh }
   = await useFetch<ChessGame>('/api/random_game', {
     server: false,
   })
 
 const newGame = async () => {
+  toast.add({
+    title: 'Getting your game!',
+    description: `Game will load in few seconds :3`,
+    color: 'primary',
+  })
   await refresh()
 }
 </script>

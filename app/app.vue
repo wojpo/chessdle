@@ -1,5 +1,9 @@
+<script setup lang="ts">
+const toaster = { duration: 2000 }
+</script>
+
 <template>
-  <UApp>
+  <UApp :toaster="toaster">
     <NuxtLayout>
       <NuxtPage />
     </NuxtLayout>
