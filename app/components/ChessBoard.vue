@@ -167,14 +167,14 @@ onBeforeUnmount(() => {
     <div class="flex items-center gap-1 text-bg font-bold">
       <button
         :disabled="currentIndex === -1"
-        class="bg-primary p-3 rounded-md shadow disabled:opacity-30 transition-all"
+        class="bg-primary p-3 rounded-md shadow disabled:opacity-30 transition-all disabled:cursor-default cursor-pointer"
         @click="first"
       >
         «
       </button>
       <button
         :disabled="currentIndex === -1"
-        class="bg-primary p-3 rounded-md shadow disabled:opacity-30 transition-all"
+        class="bg-primary p-3 rounded-md shadow disabled:opacity-30 transition-all disabled:cursor-default cursor-pointer"
         @click="prev"
       >
         ‹
@@ -186,14 +186,14 @@ onBeforeUnmount(() => {
 
       <button
         :disabled="currentIndex >= history.length - 1"
-        class="bg-primary p-3 rounded-md shadow disabled:opacity-30 transition-all"
+        class="bg-primary p-3 rounded-md shadow disabled:opacity-30 transition-all disabled:cursor-default cursor-pointer"
         @click="next"
       >
         ›
       </button>
       <button
         :disabled="currentIndex >= history.length - 1"
-        class="bg-primary p-3 rounded-md shadow disabled:opacity-30 transition-all"
+        class="bg-primary p-3 rounded-md shadow disabled:opacity-30 transition-all disabled:cursor-default cursor-pointer"
         @click="last"
       >
         »
