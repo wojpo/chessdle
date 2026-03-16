@@ -21,8 +21,8 @@ const faqs = [
 </script>
 
 <template>
-  <div class="min-h-screen">
-    <header class="py-10 text-center">
+  <div class="flex flex-col min-h-screen bg-bg">
+    <header class="py-10 text-center shrink-0">
       <h1 class="text-4xl font-bold text-primary font-rawr">
         FAQ
       </h1>
@@ -30,21 +30,23 @@ const faqs = [
         Frequently asked questions
       </p>
     </header>
-    <main class="max-w-3xl mx-auto px-4 space-y-6">
+
+    <main class="max-w-3xl mx-auto px-4 space-y-6 flex-grow w-full">
       <section
         v-for="(faq, index) in faqs"
         :key="index"
-        class="rounded-2xl shadow p-6 transition hover:shadow-lg"
+        class="rounded-2xl border border-primary/10 bg-primary/5 p-6 transition hover:border-primary/30"
       >
-        <h2 class="text-xl font-semibold text-primary">
+        <h2 class="text-xl font-semibold text-primary tracking-wide">
           {{ faq.label }}
         </h2>
-        <p class="mt-2 text-secondary">
+        <p class="mt-2 text-secondary/80 leading-relaxed">
           {{ faq.content }}
         </p>
       </section>
     </main>
-    <Footer />
+
+    <Footer class="!static py-10" />
   </div>
 </template>
 
