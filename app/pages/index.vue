@@ -1,5 +1,24 @@
 <template>
   <div class="relative flex flex-col items-center justify-center min-h-dvh bg-bg overflow-hidden px-4">
+    <div class="fixed top-4 left-4 sm:top-8 sm:left-8 z-50 group">
+      <NuxtLink to="/faq">
+        <UButton
+          color="primary"
+          variant="subtle"
+          size="xl"
+          class="rounded-2xl shadow-lg backdrop-blur-xl bg-bg/40 border border-primary/20
+                 hover:scale-110 hover:border-primary/50 transition-all duration-300
+                 w-12 h-12 sm:w-14 sm:h-14 flex items-center justify-center p-0
+                 group-hover:shadow-[0_0_20px_rgba(var(--color-primary),0.3)]"
+        >
+          <UIcon
+            name="i-lucide-help-circle"
+            class="w-6 h-6 sm:w-7 sm:h-7 text-primary group-hover:rotate-12 transition-transform duration-500"
+          />
+        </UButton>
+      </NuxtLink>
+    </div>
+
     <header class="relative z-10 flex flex-col items-center animate-in fade-in slide-in-from-bottom-4 duration-1000">
       <h1 class="text-7xl sm:text-9xl text-primary font-rawr text-center drop-shadow-sm">
         Chessdle
@@ -30,20 +49,6 @@
       </OutlineButton>
     </div>
 
-    <footer class="absolute bottom-6 w-full flex flex-col items-center gap-1 z-20 px-4 text-center animate-in fade-in duration-1000 delay-500">
-      <p class="text-[10px] sm:text-xs text-secondary/40 font-medium tracking-wider uppercase">
-        Made with <span class="text-primary/60">&lt;3</span> by
-        <a
-          href="https://github.com/wojpo"
-          target="_blank"
-          class="text-secondary/60 hover:text-primary transition-colors duration-200 decoration-primary/30 underline-offset-4 hover:underline"
-        >
-          wojpo
-        </a>
-      </p>
-      <p class="text-[9px] text-secondary/30 uppercase tracking-[0.2em]">
-        Built with Nuxt 4 & Tailwind
-      </p>
-    </footer>
+    <Footer />
   </div>
 </template>
