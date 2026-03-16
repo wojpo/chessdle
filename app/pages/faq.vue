@@ -49,7 +49,3 @@ const faqs = [
     <Footer class="!static py-10" />
   </div>
 </template>
-
-<style scoped>
-
-</style>
