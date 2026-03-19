@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import type { ChessGame } from '~~/types/chesscom'
 
-const rated = ref(false)
+const rated = ref<boolean | undefined>(undefined)
 const timeClassList = ref(['all', 'bullet', 'blitz', 'rapid'])
 const timeClass = ref('all')
 const isFilterMenuOpen = ref(false)
@@ -9,7 +9,7 @@ const isFilterMenuOpen = ref(false)
 const toast = useToast()
 
 const queryParams = computed(() => ({
-  ...(rated.value !== undefined && { rated: rated.value ? 'true' : 'false' }),
+  ...(rated.value === true && { rated: 'true' }),
   ...(timeClass.value !== 'all' && { time_class: timeClass.value }),
 }))
 
