@@ -44,3 +44,10 @@ export type GameResult
     | 'threecheck'
     | 'timevsinsufficient'
     | 'bughousepartnerlose'
+
+export interface GameFilterOptions {
+  timeClass?: ChessGame['time_class']
+  rated?: boolean
+  maxRatingDiff?: number
+  minMoves?: number
+}
