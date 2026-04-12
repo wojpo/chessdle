@@ -1,6 +1,6 @@
 import type { ArchivesResponse, ChessGame, ClubMembersResponse, GameFilterOptions } from '~~/types/chesscom'
 
-const CLUB = 'fake-chess-club'
+const CLUB = 'team-europe'
 
 function random<T>(arr: readonly T[]): T {
   if (arr.length === 0) {
